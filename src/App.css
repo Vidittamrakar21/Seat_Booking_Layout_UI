@@ -1,0 +1,118 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  background: white;
+  color: black;
+  font-family: Arial;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}
+
+.seat-grid {
+  display: grid;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 6px;
+  border:  1px solid rgb(145, 144, 144);
+  font-size: 12px;
+}
+
+.seat.selected {
+  background: #2ecc71;
+  border:  none;
+  color: white;
+}
+
+.seat.booked {
+  background: #d8d8d8;
+  border: none;
+  color: rgb(97, 97, 97);
+  cursor: not-allowed;
+}
+
+.gap {
+  width: 40px;
+  height: 40px;
+}
+
+.aisle {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+}
+
+.stairs {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.summary {
+  margin-top: 20px;
+}
+
+
+.seat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+
+}
+
+.seat-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+}
+
+.row-label {
+  width: 30px;
+  text-align: right;
+  margin-right: 10px;
+  color: #858484;
+  font-weight: bold;
+}
+
+
+.price-section {
+  margin-bottom: 18px;
+}
+
+.price-label {
+  text-align: center;
+  font-weight: bold;
+  color: #b5b5b5;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
