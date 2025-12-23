@@ -1,16 +1,70 @@
-# React + Vite
+# BookMyShow-Style Seat Layout UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A data-driven seat booking UI inspired by **BookMyShow**, built using **React** and **CSS Grid**.  
+This project demonstrates how complex theatre layouts (seats, gaps, aisles, stairs, pricing sections) can be rendered dynamically using a structured JSON configuration.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Dynamic seat layout rendering
+- JSON-driven theatre configuration
+- Supports:
+  - Seats
+  - Gaps / empty spaces
+  - Aisles
+  - Stairs
+- Row labels displayed on the left
+- Price-based seat sections (Silver / Gold / Recliner)
+- Higher-priced sections rendered first
+- Seat selection & deselection toggle
+- Booked vs available seat states
+- Scalable and backend-ready architecture
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## Core Concept
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Instead of hardcoding seats, each theatre screen is described using a **seat layout JSON**.  
+The frontend reads this configuration and renders the layout using a grid system.
+
+This approach allows:
+- Different layouts for every theatre
+- Easy modification without frontend code changes
+- Clear separation of data and UI
+
+
+## Seat Layout JSON Structure
+
+Example:
+
+```json
+{
+  "screenName": "Screen 1",
+  "columns": 14,
+  "rows": [
+    {
+      "rowLabel": "A",
+      "price": 150,
+      "seats": [
+        { "type": "SEAT", "id": "A1" },
+        { "type": "SEAT", "id": "A2" },
+        { "type": "GAP" },
+        { "type": "SEAT", "id": "A3" }
+      ]
+    },
+    {
+      "rowLabel": "B",
+      "price": 200,
+      "seats": [
+        { "type": "SEAT", "id": "B1" },
+        { "type": "AISLE" },
+        { "type": "SEAT", "id": "B2" }
+      ]
+    }
+  ]
+}
+
+```
+## Preview
+<img width="1271" height="922" alt="Screenshot from 2025-12-23 21-02-25" src="https://github.com/user-attachments/assets/78e6c216-6089-4748-8e6d-9cf5707837e7" />
+<img width="1271" height="922" alt="Screenshot from 2025-12-23 23-07-40" src="https://github.com/user-attachments/assets/c13d2522-6967-48b6-8f03-a010b213da06" />
+
